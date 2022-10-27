@@ -1,0 +1,22 @@
+{
+  "admin": [
+    {
+      "id": 1,
+      "firstName": "json-server",
+      "lastName": "typicode",
+      "email": "typicode"
+    },
+    {
+      "firstName": "asdc",
+      "lastName": "asc",
+      "email": "asc",
+      "id": 2
+    },
+    {
+      "firstName": "aa",
+      "lastName": "aa",
+      "email": "aa",
+      "id": 3
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Consumer } from './ReactContext';
+import { Consumer } from '../components/ReactContext.tsx';
 
 
 

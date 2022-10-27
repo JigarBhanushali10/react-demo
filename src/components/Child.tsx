@@ -1,5 +1,5 @@
 import React from 'react';
-import GrandChild from './GrandChild';
+import GrandChild from '../components/GrandChild.tsx';
 
 export const Child = (props: any) => {
 

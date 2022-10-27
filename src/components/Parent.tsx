@@ -1,6 +1,6 @@
 import React from 'react'
-import { Child } from './Child'
-import hocComponent from './HOC'
+import { Child } from '../components/Child.tsx'
+import hocComponent from '../components/HOC.tsx'
 // import { styled } from 'styled-components'
 
 
@@ -31,13 +31,13 @@ class Parent extends React.Component<ParentProps, ParentState> {
         console.log(this.props);
 
         return (
-           <>
-                <Child  pooja="female" methodAsProps={this.helloWorld}>
+            <>
+                <Child pooja="female" methodAsProps={this.helloWorld}>
                     children from parent component
                 </Child>
                 <h1 onClick={this.jigar}>{this.state.text}</h1>
-           </>
-            )
+            </>
+        )
     }
 }
 

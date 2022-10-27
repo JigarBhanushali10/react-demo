@@ -1,7 +1,7 @@
 import React from 'react';
-import GrandChild from '../components/GrandChild.tsx';
+import GrandChild from './GrandChild';
 
-export const Child = (props: any) => {
+export const Child = (props) => {
 
     console.log(props);
     let dataFromProps = props?.pooja

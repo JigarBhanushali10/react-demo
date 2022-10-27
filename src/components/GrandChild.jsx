@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Consumer } from '../components/ReactContext.tsx';
+import { Consumer } from './ReactContext';
 
 
 
@@ -8,7 +8,7 @@ class GrandChild extends Component {
         name: "GrandChild"
 
     }
-    constructor(props: {} | Readonly<{}>) {
+    constructor(props) {
         super(props);
     }
     render() {

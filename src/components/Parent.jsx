@@ -1,15 +1,11 @@
 import React from 'react'
-import { Child } from '../components/Child.tsx'
-import hocComponent from '../components/HOC.tsx'
+import { Child } from './Child.jsx'
+import hocComponent from './HOC.jsx'
 // import { styled } from 'styled-components'
 
 
-interface ParentProps {
-}
-interface ParentState {
 
-}
-class Parent extends React.Component<ParentProps, ParentState> {
+class Parent extends React.Component {
     newText = "World"
     state = {
         text: `Hello ${this.newText}`,
@@ -20,7 +16,7 @@ class Parent extends React.Component<ParentProps, ParentState> {
         this.setState({ text: this.state.text = 'Jigar', id: this.state.id + 1 })
     }
 
-    helloWorld = (value?: any) => {
+    helloWorld = (value) => {
         console.log(value);
 
         this.setState({ text: this.state.text = 'Changed from child', id: this.state.id - 1 })

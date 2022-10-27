@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Parent from './components/Parent.tsx'
-import Resgister from './components/Register.tsx';
+import Parent from './components/Parent.jsx'
+import Resgister from './components/Register.jsx';
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default (WrappedComponent: any) => {
+export default (WrappedComponent) => {
 
     const data={
         inConsole: () => {console.log('sending data from HOC ');}

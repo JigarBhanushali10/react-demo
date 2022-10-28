@@ -5,15 +5,18 @@ export const Child = (props) => {
 
     console.log(props);
     let dataFromProps = props?.pooja
-  
+
     return (
-        <div>
-            <button onClick={() => props.jigar('sending data from child to parent ')}>click to send data to parent</button>
+        <div style={{ border: '1px solid black', padding: 4 ,margin :8}}>
+            <div>
 
             
-                <GrandChild>
+            Child:
+            </div>
+            <button onClick={() => props.methodAsProps('Decreament count from child')} className='mb-3'>click to decreament count from parent</button>
+            <GrandChild>
                     This is data from props:{dataFromProps}
-                </GrandChild>
+ </GrandChild>
         </div>
     );
 

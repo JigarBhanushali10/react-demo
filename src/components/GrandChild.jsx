@@ -15,7 +15,8 @@ class GrandChild extends Component {
 
         console.log(this.props);
 
-        return (<div>
+        return (<div style={{border:'1px solid purple'}}>
+            GrandChild:
             <Consumer>
                 {
                     value => {

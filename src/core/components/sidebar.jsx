@@ -14,7 +14,7 @@ const Sidebar = () => {
 
             <ul className="nav nav-pills d-flex flex-column m-3 ">
                 <li className="nav-item">
-                    <NavLink to="register" className='nav-link' >Register</NavLink>
+                    <NavLink to="register" className='nav-link'  >Register</NavLink>
                 </li>
                 <li className="nav-item">
                     <NavLink to="parent" className='nav-link'>Parent</NavLink>

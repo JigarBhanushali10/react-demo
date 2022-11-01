@@ -13,6 +13,7 @@ class GrandChild extends Component {
     // }
     render() {
 
+        console.log('------------------Grand-Child----------------------');
         console.log(this.props);
 
         return (<div className='border border-secondary p-3'>

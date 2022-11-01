@@ -7,16 +7,14 @@ export const Child = (props) => {
     let dataFromProps = props?.pooja
 
     return (
-        <div style={{ border: '1px solid black', padding: 4 ,margin :8}}>
+        <div  className='border-dark border p-3'>
             <div>
-
-            
-            Child:
+                Child:
             </div>
-            <button onClick={() => props.methodAsProps('Decreament count from child')} className='mb-3'>click to decreament count from parent</button>
+            <button onClick={() => props.methodAsProps('Decreament count from child')}  className=' btn btn-danger m-3 '>click to decreament count from child</button>
             <GrandChild>
-                    This is data from props:{dataFromProps}
- </GrandChild>
+                This is data from props:{dataFromProps}
+            </GrandChild>
         </div>
     );
 

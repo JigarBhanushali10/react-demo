@@ -3,9 +3,9 @@ html,body{
   width: 100%;
 }
 
-.App {
-  text-align: center;
-}
+/* ul,li,a{
+text-decoration: none;
+} */
 
 .App-logo {
   height: 40vmin;

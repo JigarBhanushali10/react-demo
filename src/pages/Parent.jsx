@@ -1,51 +1,51 @@
 import React from 'react';
-import hocComponent from './HOC.jsx';
+import hocComponent from '../shared/components/HOC';
 // import { styled } from 'styled-components'
 import {
-    Link, Route, Routes, useParams, useLocation
+    Link, Route, Routes, useLocation, useParams
 } from "react-router-dom";
-import { Child } from './Child.jsx';
-import { Provider } from './ReactContext.jsx';
+import { Child } from '../components/Child';
+import { Provider } from '../shared/components/ReactContext';
 
 
 
 class Parent extends React.Component {
-    newText = "World"
+
     state = {
-        text: `Click to increase counter from parent`,
+        text: ``,
         id: 1
     }
+//method to increament count
+increament = () => {
+    this.setState({ text: this.state.text = 'Incremeant count from parent', id: this.state.id + 1 })
+}
 
-    increament = () => {
-        this.setState({ text: this.state.text = 'Incremeant count from parent', id: this.state.id + 1 })
-    }
-
+//method to decreament count
     decreament = (value) => {
         this.setState({ text: this.state.text = value, id: this.state.id - 1 })
     }
 
     render() {
-        console.log(this.state.id);
         console.log(this.props);
 
         return (
-            <div style={{ border: '1px solid green', padding: 8, }}>
+            <div className='border border-success p-4 h-100'>
                 {/* <NestingExample></NestingExample> */}
                 Parent
                 <Topics></Topics>
-                <button onClick={this.increament} title='click to change text' style={{ margin: 8 }}>click to incremeant count from parent</button>
+                <button onClick={this.increament} title='click to change text' className=' btn btn-info m-3 '>click to incremeant count from parent</button>
                 <Provider value='Hi from parent using react context'>
 
                     <Child pooja="female" methodAsProps={this.decreament} >
                         children from parent component
                     </Child>
                 </Provider>
-<span>
-{this.state.text}
-<h1 className='d-inline'>
-                Counter:{this.state.id}
-</h1>
-</span>
+                <span>
+                    {this.state.text}
+                    <h3 className='d-inline px-2'>
+                        Counter:{this.state.id}
+                    </h3>
+                </span>
             </div>
         )
     }

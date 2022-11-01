@@ -1,13 +1,9 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
-import Sidebar from '../layouts/sidebar';
+import Sidebar from './sidebar';
 
-import { Child } from './Child';
-import Parent from './Parent';
-import Resgister from './Register';
-
-
-
+import Parent from '../../pages/Parent';
+import Resgister from '../../pages/Register';
 
 const RouterOutlet = () => {
     return <Routes>
@@ -20,6 +16,8 @@ const RouterOutlet = () => {
 export default function Master() {
     return <div className='d-flex h-100'>
         <Sidebar></Sidebar>
-        <RouterOutlet />
+        <div className='flex-grow-1 p-3'>
+            <RouterOutlet />
+        </div>
     </div>
 }

@@ -8,7 +8,7 @@ class GrandChild extends Component {
         name: "GrandChild"
 
     }
-    constructor(props: {} | Readonly<{}>) {
+    constructor(props) {
         super(props);
     }
     render() {

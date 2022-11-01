@@ -1,6 +1,6 @@
 
-import React from 'react'
-import httpServices from '../services/services.ts';
+import React from 'react';
+import httpServices from '../shared/services/services.ts';
 
 const loginImage = "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
 
@@ -14,6 +14,7 @@ class Resgister extends React.Component {
         pageTitle: 'Add User',
         idToEdit: 0
     }
+
     /**
      * @name handleMultipleInputChange
      * @param event 
@@ -28,10 +29,15 @@ class Resgister extends React.Component {
             [name]: value
         });
     }
+
+    /**
+     * @name getUsers 
+     * @description method to get users data and set state by calling service
+     */
     getUsers() {
         httpServices.getUsers().then(response => this.setState({ users: response.data })
         )
-    }   
+    }
     /**
      * @name onSubmit
      * @description submits user data to json server using axios
@@ -65,16 +71,38 @@ class Resgister extends React.Component {
         this.getUsers()
 
     }
+
+    /**
+     * @name deleteUser 
+     * @description method to delete user by calling service
+     * @param id 
+     */
     deleteUser = (id) => {
         httpServices.deleteUser(id).then(res => this.getUsers())
     }
+    /**
+     * @name resetFrom
+     * @description method to reset form
+     */
+    resetFrom = () => {
+        this.setState({
+            firstName: '',
+            lastName: '',
+            email: '',
+        });
+    };
+
+
 
     componentDidMount() {
-        // if (this.state.email == '') {
-        //     this.setState.pageTitle = "Add User"
-        // }
         this.getUsers()
     }
+
+    /**
+     * @name updateDetails
+     * @param  id 
+     * @description calls getUserById method to get user details to patch in input fields
+     */
 
     updateDetails = (id) => {
         httpServices.getUserById(id).then(res => {
@@ -99,6 +127,7 @@ class Resgister extends React.Component {
                             <div className="card-body p-md-5">
 
                                 {
+
                                     this.state.toggleList &&
                                     <div className="row justify-content-center">
                                         <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
@@ -127,8 +156,9 @@ class Resgister extends React.Component {
                                                     </div>
                                                 </div>
 
-                                                <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                                <div className="d-flex justify-content-around mx-4 mb-3 mb-lg-4">
                                                     <button type="button" className="btn btn-success btn-lg" onClick={this.onSubmit}>{this.state.pageTitle}</button>
+                                                    <button type="button" className="btn btn-secondary btn-lg" onClick={() => this.setState({ toggleList: !this.state.toggleList })}>Go to List</button>
                                                 </div>
 
                                             </form>
@@ -149,7 +179,7 @@ class Resgister extends React.Component {
                                         </div>
 
                                         {/* user List */}
-                                        <div className='overflow-auto  ' style={{height:500}}>
+                                        <div className='overflow-auto  ' style={{ height: 500 }}>
 
                                             <table className="table fs-5">
                                                 <thead className='position-sticky top-0 bg-light'>
@@ -161,6 +191,12 @@ class Resgister extends React.Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    {this.state.users.length < 1 &&
+                                                        <td colSpan={4} className='text-center'>
+                                                            <h3>
+                                                                No record found
+                                                                </h3>
+                                                        </td>}
                                                     {this.state.users.map(item => <tr key={item['id']} >
                                                         <td>
                                                             {item['id']}

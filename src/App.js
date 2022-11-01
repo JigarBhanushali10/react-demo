@@ -1,14 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-import Parent from './components/Parent.jsx'
-import Resgister from './components/Register.jsx';
+import Master from './core/components/master';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="h-100">
+      {/* <header className="App-header">
         <Resgister />
-      </header>
+      </header> */}
+      
+     <Master></Master>
+      
     </div>
   );
 }

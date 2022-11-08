@@ -5,6 +5,7 @@ import Sidebar from './sidebar';
 import Parent from '../../pages/Parent';
 import Resgister from '../../pages/Register';
 import NestedRoutes from '../../pages/NestedRoutes';
+import Formik from '../../pages/Formik';
 
 const Component =() => <h1>component</h1>
 const PropsVsState =() => <h1>propsVsState</h1>
@@ -18,6 +19,7 @@ const RouterOutlet = () => {
             <Route path='component' element={<Component/>}></Route>
             <Route path='propsVsState' element={<PropsVsState/>}></Route>
         </Route>
+        <Route path="formik" element={<Formik />} />
     </Routes>
 }
 

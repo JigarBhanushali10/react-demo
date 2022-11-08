@@ -22,6 +22,9 @@ const Sidebar = () => {
                 <li className="nav-item">
                     <NavLink to="nestedRouted" className='nav-link'>Nested-Routes</NavLink>
                 </li>
+                <li className="nav-item">
+                    <NavLink to="formik" className='nav-link'>Formik</NavLink>
+                </li>
 
             </ul>
         </div>

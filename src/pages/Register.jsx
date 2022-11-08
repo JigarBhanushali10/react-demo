@@ -49,26 +49,27 @@ class Resgister extends React.Component {
         user.email = this.state.email
         if (this.state.pageTitle == 'Add User') {
             httpServices.addUser(user).then(() => {
-                this.setState({ toggleList: !this.state.toggleList })
+                this.getUsers()
                 this.setState({
                     firstName: '',
                     lastName: '',
-                    email: ''
+                    email: '',
+                    toggleList: !this.state.toggleList
                 });
             }
             );
         } else {
 
             httpServices.updateUser(this.state.idToEdit, user).then(() => {
+                this.getUsers()
                 this.setState({
-                    toggleList: !this.state.toggleList, firstName: '',
                     lastName: '',
-                    email: ''
+                    email: '',
+                    toggleList: !this.state.toggleList, firstName: '',
                 })
             }
             )
         }
-        this.getUsers()
 
     }
 
@@ -112,11 +113,20 @@ class Resgister extends React.Component {
                 email: res.data.email,
                 idToEdit: res.data.id
             });
+            this.getUsers()
             this.setState({ toggleList: !this.state.toggleList, pageTitle: 'Update User' })
         })
 
     }
+    handleAddUser = () => {
+        this.getUsers()
+        this.setState({ toggleList: !this.state.toggleList, pageTitle: 'Add User' })
+    }
 
+    handleListView = () => {
+        this.setState({ toggleList: !this.state.toggleList })
+        this.getUsers()
+    }
 
     render() {
         return (
@@ -158,7 +168,7 @@ class Resgister extends React.Component {
 
                                                 <div className="d-flex justify-content-around mx-4 mb-3 mb-lg-4">
                                                     <button type="button" className="btn btn-success btn-lg" onClick={this.onSubmit}>{this.state.pageTitle}</button>
-                                                    <button type="button" className="btn btn-secondary btn-lg" onClick={() => this.setState({ toggleList: !this.state.toggleList })}>Go to List</button>
+                                                    <button type="button" className="btn btn-secondary btn-lg" onClick={this.handleListView}>Go to List</button>
                                                 </div>
 
                                             </form>
@@ -175,27 +185,27 @@ class Resgister extends React.Component {
                                     !this.state.toggleList && <div className='oveflow-hidden my-3' >
                                         <div>
 
-                                            <button className=' btn btn-secondary ' onClick={() => this.setState({ toggleList: !this.state.toggleList, pageTitle: 'Add User' })}>Add User</button>
+                                            <button className=' btn btn-secondary ' onClick={this.handleAddUser}>Add User</button>
                                         </div>
 
                                         {/* user List */}
                                         <div className='overflow-auto  ' style={{ height: 500 }}>
 
-                                            <table className="table fs-5">
+                                            <table className="table fs-5 w-100">
                                                 <thead className='position-sticky top-0 bg-light'>
                                                     <tr>
                                                         <th scope="col">Sr no.</th>
                                                         <th scope="col">First</th>
                                                         <th scope="col">Last</th>
-                                                        <th scope="col">actions</th>
+                                                        <th scope="col" className='text-center'>actions</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     {this.state.users.length < 1 &&
-                                                    <tr>    <td colSpan={4} className='text-center'>
+                                                        <tr>    <td colSpan={4} className='text-center'>
                                                             <h3>
                                                                 No record found
-                                                                </h3>
+                                                            </h3>
                                                         </td></tr>}
                                                     {this.state.users.map(item => <tr key={item['id']} >
                                                         <td>

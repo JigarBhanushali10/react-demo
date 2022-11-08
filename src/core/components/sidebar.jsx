@@ -6,7 +6,7 @@ const Sidebar = () => {
 
 
     return <>
-        <div className='bg-white border border-1 flex-shrink-0' style={{ width: 250 }}>
+        <div className='sidebar bg-white border border-1 flex-shrink-0' >
 
             <div className='p-2 m-2 text-center border-bottom'>
                 LOGO
@@ -17,7 +17,7 @@ const Sidebar = () => {
                     <NavLink to="register" className='nav-link'  >Register</NavLink>
                 </li>
                 <li className="nav-item">
-                    <NavLink to="parent" className='nav-link'>Parent</NavLink>
+                    <NavLink to="parent" className='nav-link'>Parent Child Communication</NavLink>
                 </li>
                 <li className="nav-item">
                     <NavLink to="nestedRouted" className='nav-link'>Nested-Routes</NavLink>

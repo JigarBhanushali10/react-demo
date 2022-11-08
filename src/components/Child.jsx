@@ -1,12 +1,14 @@
 import React from 'react';
 import GrandChild from './GrandChild';
 
-export const Child = (props) => {
+ const Child = (props) => {
 
+     console.log('------------------Child-----------------------');
     console.log(props);
     let dataFromProps = props?.pooja
-
+    
     return (
+        
         <div  className='border-dark border p-3'>
             <div>
                 Child:
@@ -19,3 +21,6 @@ export const Child = (props) => {
     );
 
 }
+
+export default React.memo(Child)
+// export default Child

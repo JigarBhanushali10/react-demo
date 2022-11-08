@@ -192,11 +192,11 @@ class Resgister extends React.Component {
                                                 </thead>
                                                 <tbody>
                                                     {this.state.users.length < 1 &&
-                                                        <td colSpan={4} className='text-center'>
+                                                    <tr>    <td colSpan={4} className='text-center'>
                                                             <h3>
                                                                 No record found
                                                                 </h3>
-                                                        </td>}
+                                                        </td></tr>}
                                                     {this.state.users.map(item => <tr key={item['id']} >
                                                         <td>
                                                             {item['id']}

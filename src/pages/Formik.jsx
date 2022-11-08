@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 
 
 const Formik = () => {
+
     const onSubmit = (value) => {
         console.log(value);
     }
@@ -15,7 +16,7 @@ const Formik = () => {
         if (!value.name) {
             error.name = 'Required'
         }
-        if (value.name.length >5) {
+        if (value.name.length > 5) {
             error.name = 'Exceeding Max length 5'
         }
         if (!value.food) {
@@ -24,7 +25,9 @@ const Formik = () => {
         // console.log(error);
         return error
     }
-
+    /**
+     * latest js feature allows to create object below syntax if key value have same name 
+     */
     const formik = useFormik({
         initialValues,
         onSubmit,

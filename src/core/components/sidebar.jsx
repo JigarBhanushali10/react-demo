@@ -25,6 +25,9 @@ const Sidebar = () => {
                 <li className="nav-item">
                     <NavLink to="formik" className='nav-link'>Formik</NavLink>
                 </li>
+                <li className="nav-item">
+                    <NavLink to="componentComposition" className='nav-link'>Component Composition</NavLink>
+                </li>
 
             </ul>
         </div>

@@ -5,7 +5,6 @@ import GrandChild from './GrandChild';
 
      console.log('------------------Child-----------------------');
     console.log(props);
-    let dataFromProps = props?.pooja
     
     return (
         
@@ -14,9 +13,10 @@ import GrandChild from './GrandChild';
                 Child:
             </div>
             <button onClick={() => props.methodAsProps('Decreament count from child')}  className=' btn btn-danger m-3 '>click to decreament count from child</button>
-            <GrandChild>
+            {/* <GrandChild>
                 This is data from props:{dataFromProps}
-            </GrandChild>
+            </GrandChild> */}
+            {props.children}
         </div>
     );
 

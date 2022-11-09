@@ -5,12 +5,26 @@ import { Consumer } from '../shared/components/ReactContext';
 
 class GrandChild extends Component {
     state = {
-        name: "GrandChild"
+        name: "GrandChild",
+        grandChildCounter: 0,
 
+        increamentGrandChildCounter: () => {
+            this.setState({ grandChildCounter: this.state.grandChildCounter + 1 },)
+        }
     }
-    // constructor(props) {
-    //     super(props);
+    constructor(props) {
+        super(props);
+    }
+
+    // increamentGrandChildCounter() {
+    //     this.setState({ grandChildCounter: this.state.grandChildCounter + 1 },)
     // }
+
+    decreamentGrandChildCounter() {
+        this.setState({ grandChildCounter: this.state.grandChildCounter - 1 },)
+    }
+
+
     render() {
 
         console.log('------------------Grand-Child----------------------');
@@ -18,7 +32,7 @@ class GrandChild extends Component {
 
         return (<div className='border border-secondary p-3'>
             GrandChild:
-            <Consumer>
+            {/* <Consumer>
                 {
                     value => {
 
@@ -29,7 +43,17 @@ class GrandChild extends Component {
                         </div>
                     }
                 }
-            </Consumer>
+                
+            </Consumer> */}
+
+            {/* <button onClick={this.state.increamentGrandChildCounter}>aslfnas</button> */}
+            <button onClick={this.props.methodAsProps} title='click to change text' className=' btn btn-info m-3 '>click to incremeant count from GrandChild</button>
+
+            {this.props.children}
+            <br></br>
+            this data is from parent:{this.props.counter}
+            <br></br>
+            this data is own data (grandChild) :{this.state.grandChildCounter}
         </div>)
     }
 }

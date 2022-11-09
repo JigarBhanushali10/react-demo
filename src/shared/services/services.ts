@@ -48,6 +48,7 @@ const updateUser = (id, user) => axios.put(`${baseUrl}admin/${id}`, user)
  */
 const deleteUser = (id) => axios.delete(`${baseUrl}admin/${id}`)
 
+
 const httpServices = {
     getUsers,
     addUser,

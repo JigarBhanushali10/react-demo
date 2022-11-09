@@ -6,6 +6,7 @@ import Parent from '../../pages/Parent';
 import Resgister from '../../pages/Register';
 import NestedRoutes from '../../pages/NestedRoutes';
 import Formik from '../../pages/Formik';
+import ComponentComposition from '../../pages/ComponentComposition';
 
 const Component =() => <h1>component</h1>
 const PropsVsState =() => <h1>propsVsState</h1>
@@ -20,6 +21,7 @@ const RouterOutlet = () => {
             <Route path='propsVsState' element={<PropsVsState/>}></Route>
         </Route>
         <Route path="formik" element={<Formik />} />
+        <Route path="componentComposition" element={<ComponentComposition />} />
     </Routes>
 }
 

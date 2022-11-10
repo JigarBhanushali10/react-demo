@@ -27,7 +27,7 @@ const YupValidation = () => {
     // }
 
     const validationSchema = Yup.object({
-        name: Yup.string().min(2).max(4).required('Required!!!'),
+        name: Yup.string().min(2).max(4,"Address must be more than 4 characters long").required('Required!!!'),
         food: Yup.string().required('Required')
     })
 
@@ -39,14 +39,13 @@ const YupValidation = () => {
 
     };
 
+
+    //todo find formik.ref
+
     /**
      * latest js feature allows to create object below syntax if key value have same name 
      */
-    // const formik = useFormik({
-    //     initialValues,
-    //     onSubmit,
-    //     validationSchema
-    // })
+    
     return (
         <>
             <Formik initialValues={initialValues}

@@ -1,23 +1,5 @@
 import axios from "axios";
 
-/**
- * axious interceptor
- */
-axios.interceptors.request.use(request => {
-    // console.log('request', request);
-    request.headers.AccessToken = ' Jigar1234'
-    return request
-})
-
-axios.interceptors.response.use(response => {
-    // debugger
-    // console.log('response', response);
-    return response
-})
-
-
-
-
 const baseUrl = 'http://localhost:3000/'
 
 /**
@@ -44,7 +26,7 @@ const addUser = (user) => axios.post(`${baseUrl}admin`, user)
 const updateUser = (id, user) => axios.put(`${baseUrl}admin/${id}`, user)
 /**
  * @name delteUser
- * @description service to update Users
+ * @description service to delete Users
  */
 const deleteUser = (id) => axios.delete(`${baseUrl}admin/${id}`)
 

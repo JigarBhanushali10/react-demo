@@ -32,19 +32,18 @@ class GrandChild extends Component {
 
         return (<div className='border border-secondary p-3'>
             GrandChild:
-            {/* <Consumer>
+            {/* context */}
+            <Consumer>
                 {
                     value => {
-
                         console.log(value);
-
                         return <div>
                             {value}
                         </div>
                     }
                 }
-                
-            </Consumer> */}
+
+            </Consumer>
 
             {/* <button onClick={this.state.increamentGrandChildCounter}>aslfnas</button> */}
             <button onClick={this.props.methodAsProps} title='click to change text' className=' btn btn-info m-3 '>click to incremeant count from GrandChild</button>
@@ -53,7 +52,7 @@ class GrandChild extends Component {
             <br></br>
             this data is from parent:{this.props.counter}
             <br></br>
-            this data is own data (grandChild) :{this.state.grandChildCounter}
+            {/* this data is own data (grandChild) :{this.state.grandChildCounter} */}
         </div>)
     }
 }

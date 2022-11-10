@@ -1,10 +1,22 @@
 {
   "admin": [
     {
-      "firstName": "asc",
-      "lastName": "assdvsdv",
-      "email": "as",
+      "firstName": "gr",
+      "lastName": "axs",
+      "email": "dg",
+      "id": 2
+    }
+  ],
+  "employee": [
+    {
+      "name": "asc",
+      "email": "assdvsdv",
       "id": 1
+    },
+    {
+      "name": "jiga",
+      "email": "asc@as.ac",
+      "id": 2
     }
   ]
 }

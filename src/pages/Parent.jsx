@@ -12,7 +12,7 @@ import { Provider } from '../shared/components/ReactContext';
 
 const Parent = (props) => {
     const [text, setText] = useState('')
-    const [id, setId] = useState('')
+    const [id, setId] = useState(0)
     const grandChildRef = useRef(null)
     console.log('grandChildRef', grandChildRef);
 
@@ -31,10 +31,6 @@ const Parent = (props) => {
     const increament = () => {
         setId(id + 1)
         setText('Incremeant count from grandChild')
-    }
-    const handleStateInGrandChild = () => {
-        console.log(grandChildRef);
-        grandChildRef.current.state.increamentGrandChildCounter()
     }
 
     //method to decreament count
@@ -55,7 +51,6 @@ const Parent = (props) => {
             {/* <button onClick={handleStateInGrandChild}>using ref to chnage state in grand child</button> */}
 
             <Provider value='Hi from parent using react context'>
-
                 <Child pooja="female" methodAsProps={decreament} >
                     <GrandChild methodAsProps={increament} counter={id} ref={grandChildRef}>
                         {/* <button onClick={this.increament} title='click to change text' className=' btn btn-info m-3 '>click to incremeant count from GrandChild</button> */}

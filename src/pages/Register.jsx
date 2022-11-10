@@ -1,6 +1,6 @@
 
 import React from 'react';
-import httpServices from '../shared/services/services.ts';
+import httpServices from '../shared/services/userServices';
 
 const loginImage = "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
 

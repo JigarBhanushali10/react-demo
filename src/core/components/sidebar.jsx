@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from "react-router-dom"
+import { NavLink ,Link} from "react-router-dom"
 
 
 const Sidebar = () => {
@@ -14,10 +14,11 @@ const Sidebar = () => {
 
             <ul className="nav nav-pills d-flex flex-column m-3 ">
                 <li className="nav-item">
-                    <NavLink to="register" className='nav-link'  >Register</NavLink>
+                    <Link to="register" className='nav-link'  >Register</Link>
+                    {/* check for active class*/}
                 </li>
                 <li className="nav-item">
-                    <NavLink to="parent" className='nav-link'>Parent Child Communication</NavLink>
+                    <NavLink  to="parent" className='nav-link'>Parent Child Communication</NavLink>
                 </li>
                 <li className="nav-item">
                     <NavLink to="nestedRouted" className='nav-link'>Nested-Routes</NavLink>
@@ -30,6 +31,9 @@ const Sidebar = () => {
                 </li>
                 <li className="nav-item">
                     <NavLink to="yup" className='nav-link'>Formik With Yup</NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink to="employee" className='nav-link'>Employee</NavLink>
                 </li>
 
             </ul>

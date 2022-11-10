@@ -15,8 +15,7 @@ const Formik = () => {
         let error = {}
         if (!value.name) {
             error.name = 'Required'
-        }
-        if (value.name.length > 5) {
+        }else if (value.name.length > 5) {
             error.name = 'Exceeding Max length 5'
         }
         if (!value.food) {
@@ -39,17 +38,17 @@ const Formik = () => {
                 <div className="form-group py-2">
                     <label htmlFor="name">Name</label>
                     <input type="text" className="form-control " id="name" placeholder="Enter Name" {...formik.getFieldProps('name')} />{/*  by using  spread opertator with formik getfeildProps we can eliminate fe lines of code */}
-                    {formik.touched.name && formik.errors.name ? <div className='text-danger'>
+                    {formik.touched.name && formik.errors.name && <div className='text-danger'>
                         {formik.errors.name}
-                    </div> : null
+                    </div> 
                     }
                 </div>
                 <div className="form-group py-2">
                     <label htmlFor="food">Food</label>
                     <input type="text" className="form-control " id="food" placeholder="Fav. Food" onChange={formik.handleChange} value={formik.values.food} onBlur={formik.handleBlur} />
-                    {formik.touched.food && formik.errors.food ? <div className='text-danger'>
+                    {formik.touched.food && formik.errors.food && <div className='text-danger'>
                         {formik.errors.food}
-                    </div> : null
+                    </div>
                     }               </div>
                 <button type="submit" className="btn btn-primary my-3">Submit</button>
             </form>

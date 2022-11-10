@@ -7,6 +7,7 @@ import Resgister from '../../pages/Register';
 import NestedRoutes from '../../pages/NestedRoutes';
 import Formik from '../../pages/Formik';
 import ComponentComposition from '../../pages/ComponentComposition';
+import YupValidation from '../../pages/Yup';
 
 const Component =() => <h1>component</h1>
 const PropsVsState =() => <h1>propsVsState</h1>
@@ -22,6 +23,7 @@ const RouterOutlet = () => {
         </Route>
         <Route path="formik" element={<Formik />} />
         <Route path="componentComposition" element={<ComponentComposition />} />
+        <Route path="yup" element={<YupValidation />} />
     </Routes>
 }
 

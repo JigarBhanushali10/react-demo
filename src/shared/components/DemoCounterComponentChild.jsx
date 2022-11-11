@@ -35,7 +35,7 @@ const DemoCounterComponentChild = forwardRef((props, ref) => {
                     Using Method as Props
                 </small>
                 <button className='btn btn-info' onClick={() => props.increamentCounterMethodAsProps('Incremented from Child')}>Parent Increament</button>
-                <button className='btn btn-danger mx-3' onClick={() => props.decreamentCounterMethodAsProps('Decremented from Child')}>Parent Decreament</button>
+                <button className='btn btn-danger mx-1' onClick={() => props.decreamentCounterMethodAsProps('Decremented from Child')}>Parent Decreament</button>
             </div>
             <div className='border p-1 m-1'>
                 {/* Buttons to temper Child Conter  */}
@@ -44,7 +44,7 @@ const DemoCounterComponentChild = forwardRef((props, ref) => {
                 </small>
 
                 <button className='btn btn-info' onClick={() => increamentChildCounter('Incremented from Child')}>Child Increament</button>
-                <button className='btn btn-danger mx-3' onClick={() => decreamentChildCounter('Decremented from Child')}>Child Decreament</button>
+                <button className='btn btn-danger mx-1' onClick={() => decreamentChildCounter('Decremented from Child')}>Child Decreament</button>
             </div>
             <div className='border p-1 m-1'>
                 {/* Buttons to temper grandChild Conter  */}
@@ -52,7 +52,7 @@ const DemoCounterComponentChild = forwardRef((props, ref) => {
                     Using Method as Props
                 </small>
                 <button className='btn btn-info' onClick={() => props.increamentGrandChildCounterMethodAsProps('Incremented from Child')}>GrandChild Increament</button>
-                <button className='btn btn-danger mx-3' onClick={() => props.decreamentGrandChildCounterMethodAsProps('Decremented from Child')}>GrandChild Decreament</button>
+                <button className='btn btn-danger mx-1' onClick={() => props.decreamentGrandChildCounterMethodAsProps('Decremented from Child')}>GrandChild Decreament</button>
             </div>
         </div>
         {props.children}

@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState, memo } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import ModelPopUp from '../shared/components/ModelPopUp'
 
-import empServices from '../shared/services/empService'
+
+import empServices from '../shared/services/empService';
 
 /**
  * @name EmployeeList
@@ -16,10 +17,12 @@ function EmployeeList() {
      */
     const navigate = useNavigate();
 
-    // var : employeeList for employee List 
-    // method : setEmployeeList to set data to employeeList
-
+    /**
+     * @name employeeList,setEmployeeList
+     * @desc: employeeList for employee List , setEmployeeList to set data to employeeList
+     */
     const [employeeList, setEmployeeList] = useState([])
+
     /**
      * @name getEmployees
      * @description method to call get getEmployees form empService and set data to employeeList 
@@ -27,7 +30,6 @@ function EmployeeList() {
     const getEmployees = async () => {
         const response = await empServices.getEmployees()
         const data = await response.data
-        console.log('data', data);
         setEmployeeList(data)
     }
 
@@ -36,16 +38,28 @@ function EmployeeList() {
      * @param id
      * @description method to call delete deleteEmployee form empService and  call getEmployee again
      */
-    const deleteEmployee = (id) => {
-        empServices.deleteEmployee(id).then(() => getEmployees())
+    const jigar = () => {
+        let val
+        if (true) {
+            val = true
+        }
+        return val
     }
+    const deleteEmployee = (id) => {
+        setIdToDelete(id)
+        setModelText('Do you want to delete Employee?')
+        setshowModel(!showModel)
+    }
+
+
+
     /**
      * @name editEmployee
      * @param id
      * @description method to call edit getEmployeeById form empService and navigate to form
      */
     const editEmployee = (id) => {
-        empServices.getEmployeeById(id).then(() =>navigate(`/employee/form/${id}`))
+        navigate(`/employee/form/${id}`)
     }
 
     useEffect(() => {
@@ -53,8 +67,28 @@ function EmployeeList() {
     }, [])
 
 
+    const [showModel, setshowModel] = useState(false)
+    const [modelText, setModelText] = useState('')
+    const [idToDelete, setIdToDelete] = useState(-1)
+
+    const onClose = (...val) => {
+        if (val[0] == 'OK') {
+            empServices.deleteEmployee(idToDelete).then(() => getEmployees())
+            setshowModel(!showModel)
+        }
+        else if (val[0] == 'close') {
+            setshowModel(!val)
+        }
+    }
+
     return (
         <>
+            {
+                showModel &&
+                <ModelPopUp closeModel={onClose} showModel={showModel} type={'confirm'}>
+                    {modelText}
+                </ModelPopUp>
+            }
             <Link to='/employee/form' className='btn btn-outline-secondary float-end my-3'>Add Employee</Link>
             <table className="table fs-5 w-100">
                 <thead className='position-sticky top-0 bg-light'>
@@ -96,4 +130,4 @@ function EmployeeList() {
     )
 }
 
-export default EmployeeList
+export default memo(EmployeeList)

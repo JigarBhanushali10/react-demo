@@ -38,16 +38,7 @@ function EmployeeForm() {
      */
 
     const [patchValue, setPatchValue] = useState(initialValues)
-    /**
-     * @name getEmployeeById
-     * @desc: calls  getEmployeeById from service and sets page title and button tile to Update, patches value to feilds
-     */
-    const getEmployeeById = () => {
-        setTitle('Update')
-        empServices.getEmployeeById(id).then(res => {
-            setPatchValue(res.data)
-        })
-    }
+
 
     /**
      * @name validationSchema
@@ -120,21 +111,31 @@ function EmployeeForm() {
 
     useEffect(() => {
         if (id) {
+            /**
+ * @name getEmployeeById
+ * @desc: calls  getEmployeeById from service and sets page title and button tile to Update, patches value to feilds
+ */
+            const getEmployeeById = () => {
+                setTitle('Update')
+                empServices.getEmployeeById(id).then(res => {
+                    setPatchValue(res.data)
+                })
+            }
             getEmployeeById()
         }
-    }, [])
+    }, [id])
 
 
     const [showModel, setshowModel] = useState(false)
     const [modelText, setModelText] = useState('')
     const onClose = (...val) => {
         setshowModel(!val)
-        if(val[0]=='OK'){
+        if (val[0] === 'OK') {
             navigate('/employee')
         }
     }
 
-    
+
 
     return (
         <>

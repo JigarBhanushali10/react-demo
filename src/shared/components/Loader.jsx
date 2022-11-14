@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import './Loader.css'
 
@@ -17,7 +17,7 @@ const Loader = () => {
 
                 className='justify-content-center m-1 d-flex flex-column rounded-3 p-4  position-relative'
             >
-                <div  class="spinner fs-1"><span></span></div>
+                <div  className="spinner fs-1"><span></span></div>
             </div>
         </div>,
         loader,

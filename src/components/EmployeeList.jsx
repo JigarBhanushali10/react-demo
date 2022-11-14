@@ -28,9 +28,10 @@ function EmployeeList() {
      * @description method to call get getEmployees form empService and set data to employeeList 
      */
     const getEmployees = async () => {
-        const response = await empServices.getEmployees()
-        const data = await response.data
-        setEmployeeList(data)
+        // const response = await empServices.getEmployees()
+        // const data = await response.data
+        empServices.getEmployees().then(res=>setEmployeeList(res.data))
+        // setEmployeeList(data)
     }
 
     /**
@@ -38,13 +39,7 @@ function EmployeeList() {
      * @param id
      * @description method to call delete deleteEmployee form empService and  call getEmployee again
      */
-    const jigar = () => {
-        let val
-        if (true) {
-            val = true
-        }
-        return val
-    }
+   
     const deleteEmployee = (id) => {
         setIdToDelete(id)
         setModelText('Do you want to delete Employee?')
@@ -72,11 +67,11 @@ function EmployeeList() {
     const [idToDelete, setIdToDelete] = useState(-1)
 
     const onClose = (...val) => {
-        if (val[0] == 'OK') {
+        if (val[0] === 'OK') {
             empServices.deleteEmployee(idToDelete).then(() => getEmployees())
             setshowModel(!showModel)
         }
-        else if (val[0] == 'close') {
+        else if (val[0] === 'close') {
             setshowModel(!val)
         }
     }

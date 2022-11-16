@@ -1,5 +1,6 @@
 import axios from "axios";
-import React from 'react';
+import { useContext} from 'react';
+import { ReactContext } from "../../shared/components/ReactContext";
 
 
 /**
@@ -8,21 +9,19 @@ import React from 'react';
 // todo Done make function and use as selector in app.jsx 
 // todo review it once again 
 
-const AuthInterceptor = (props) => {
-    // console.log(props.method);
-    const { method } = props
+const AuthInterceptor = () => {
+    const {setloader} = useContext(ReactContext)
 
     axios.interceptors.request.use(request => {
         // console.log('request', request);
         request.headers.AccessToken = ' Jigar1234'
-        method(true)
+        setloader(true)
         return request
-    })
+    },(error)=> Promise.reject(error))
 
     axios.interceptors.response.use(response => {
-        // debugger
         // console.log('response', response);
-        method(false)
+        setloader(false)
         return response
     },
     (error) => {
@@ -44,12 +43,9 @@ const AuthInterceptor = (props) => {
                 console.log("an unknown error occurred");
                 break;
         }
-        return error
+        return Promise.reject(error)
     })
 
-    return <>
-        {props.children}
-    </>
 }
 
 export default AuthInterceptor

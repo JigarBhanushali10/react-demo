@@ -1,6 +1,7 @@
 import axios from "axios";
+import { environment } from "../../environments/environment.ts";
 
-const baseUrl = 'http://localhost:3000/'
+const baseUrl = environment.url
 
 /**
  * @name getUsers

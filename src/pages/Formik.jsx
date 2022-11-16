@@ -29,19 +29,19 @@ const Formik = () => {
     /**
      * latest js feature allows to create object below syntax if key value have same name 
      */
-    const validationSchema = Yup.object({
+    const validations = Yup.object({
         name: Yup.string().min(2).max(4,"Address must be more than 4 characters long").required('Required!!!'),
         food: Yup.string().required('Required')
     })
     const formik = useFormik({
         initialValues,
         onSubmit,
-        validationSchema
+        validationSchema: validations
     })
 
     return (
         <>
-            <form onSubmit={formik.handleSubmit} validationSchema={formik.validationSchema}>
+            <form onSubmit={formik.handleSubmit} validationSchema={formik.validations}>
              
                  <div className="form-group py-2">
                     <label htmlFor="name">Name</label>

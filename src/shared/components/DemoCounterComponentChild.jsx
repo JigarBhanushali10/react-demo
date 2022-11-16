@@ -8,16 +8,15 @@ const DemoCounterComponentChild = forwardRef((props, ref) => {
     }))
 
     const [counter, setCounter] = useState(0)
-    const [text, settext] = useState('')
 
     //child's own methods to increament and decreament counter 
 
     const increamentChildCounter = (val) => {
-        settext(val)
+        console.log(val);
         setCounter(prevState => prevState + 1)
     }
     const decreamentChildCounter = (val) => {
-        settext(val)
+        console.log(val);
         setCounter(prevState => prevState - 1)
     }
 
@@ -26,7 +25,7 @@ const DemoCounterComponentChild = forwardRef((props, ref) => {
             {props.name}
         </h3>
         <h4 className='text-center'>
-            {props.name} Counter {text}: {counter}
+            {props.name} Counter : {counter}
         </h4>
         <div className='d-flex justify-content-evenly '>
             <div className='border p-1 m-1'>
@@ -34,25 +33,27 @@ const DemoCounterComponentChild = forwardRef((props, ref) => {
                 <small className='d-block p-2'>
                     Using Method as Props
                 </small>
-                <button className='btn btn-info' onClick={() => props.increamentCounterMethodAsProps('Incremented from Child')}>Parent Increament</button>
-                <button className='btn btn-danger mx-1' onClick={() => props.decreamentCounterMethodAsProps('Decremented from Child')}>Parent Decreament</button>
+                Parent
+                <button className='btn btn-info mx-1' onClick={() => props.increamentCounterMethodAsProps('Incremented from Child')}>+</button>
+                <button className='btn btn-danger mx-1' onClick={() => props.decreamentCounterMethodAsProps('Decremented from Child')}>-</button>
             </div>
             <div className='border p-1 m-1'>
                 {/* Buttons to temper Child Conter  */}
                 <small className='d-block p-2'>
                     Own Methods
                 </small>
-
-                <button className='btn btn-info' onClick={() => increamentChildCounter('Incremented from Child')}>Child Increament</button>
-                <button className='btn btn-danger mx-1' onClick={() => decreamentChildCounter('Decremented from Child')}>Child Decreament</button>
+                Child
+                <button className='btn btn-info mx-1' onClick={() => increamentChildCounter('Incremented from Child')}>+</button>
+                <button className='btn btn-danger mx-1' onClick={() => decreamentChildCounter('Decremented from Child')}>-</button>
             </div>
             <div className='border p-1 m-1'>
                 {/* Buttons to temper grandChild Conter  */}
                 <small className='d-block p-2'>
                     Using Method as Props
                 </small>
-                <button className='btn btn-info' onClick={() => props.increamentGrandChildCounterMethodAsProps('Incremented from Child')}>GrandChild Increament</button>
-                <button className='btn btn-danger mx-1' onClick={() => props.decreamentGrandChildCounterMethodAsProps('Decremented from Child')}>GrandChild Decreament</button>
+                GrandChild
+                <button className='btn btn-info mx-1' onClick={() => props.increamentGrandChildCounterMethodAsProps('Incremented from Child')}>+</button>
+                <button className='btn btn-danger mx-1' onClick={() => props.decreamentGrandChildCounterMethodAsProps('Decremented from Child')}>-</button>
             </div>
         </div>
         {props.children}

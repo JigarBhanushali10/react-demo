@@ -27,7 +27,7 @@ import ReactDOM from 'react-dom'
                 className='justify-content-center m-1 d-flex flex-column rounded-3 p-4 bg-white position-relative'
             >
                 {props.children}
-                <hr />
+                <hr className='py-2'/>
                 {props.type === 'prompt' &&
                     <div>
                         <label htmlFor="value">Enter Value:</label><input htmlFor='value' type="text" className='w-100' name='value'  onChange={(val)=>{setValue(val.target.value);console.log(value)}} />

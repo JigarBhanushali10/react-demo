@@ -1,10 +1,10 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import { default as React, memo, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { toast,ToastContainer } from 'react-toastify'
 import * as Yup from 'yup'
 import ModelPopUp from '../shared/components/ModelPopUp'
 import empServices from '../shared/services/empService'
-
 /**
  * @name EmployeeForm
  * @returns Jsx Form
@@ -20,7 +20,6 @@ function EmployeeForm() {
      * @descrption to use navigation  feature of react router
      */
     const navigate = useNavigate();
-
 
     const { id } = useParams()
 
@@ -38,7 +37,6 @@ function EmployeeForm() {
      */
 
     const [patchValue, setPatchValue] = useState(initialValues)
-
 
     /**
      * @name validationSchema
@@ -112,19 +110,20 @@ function EmployeeForm() {
     useEffect(() => {
         if (id) {
             /**
- * @name getEmployeeById
- * @desc: calls  getEmployeeById from service and sets page title and button tile to Update, patches value to feilds
- */
+            * @name getEmployeeById
+            * @desc: calls  getEmployeeById from service and sets page title and button tile to Update, patches value to feilds
+            */
             const getEmployeeById = () => {
                 setTitle('Update')
                 empServices.getEmployeeById(id).then(res => {
+                    // this wont work until enableReinitialize prop is used on formik
                     setPatchValue(res.data)
+                    
                 })
             }
             getEmployeeById()
         }
     }, [id])
-
 
     const [showModel, setshowModel] = useState(false)
     const [modelText, setModelText] = useState('')
@@ -135,8 +134,6 @@ function EmployeeForm() {
         }
     }
 
-
-
     return (
         <>
             {
@@ -145,6 +142,7 @@ function EmployeeForm() {
                     {modelText}
                 </ModelPopUp>
             }
+          
             <div className='text-end'>
                 <Link to='/employee' className='btn btn-outline-secondary my-3'>List</Link>
             </div>
@@ -160,7 +158,6 @@ function EmployeeForm() {
                         <label htmlFor="name">Name</label>
                         <Field type="text" className="form-control " id="name" name='name' placeholder="Enter Name" />{/*  by using  spread opertator with formik getfeildProps we can eliminate fe lines of code */}
                         <ErrorMessage name="name" render={renderError} />
-
                     </div>
                     <div className="form-group py-2">
                         <label htmlFor="email">Email</label>

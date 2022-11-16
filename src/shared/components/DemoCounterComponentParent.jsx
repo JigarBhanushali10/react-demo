@@ -5,7 +5,6 @@ import { Provider } from './ReactContext';
 
 const DemoCounterComponentParent = (props) => {
     const [counter, setCounter] = useState(0)
-    const [text, setText] = useState('')
 
     const childRef = useRef()
     const grandChildRef = useRef()
@@ -14,14 +13,14 @@ const DemoCounterComponentParent = (props) => {
 
     const increamentCounter = (val) => {
         if (val) {
-            setText(val)
+            console.log(val);
         }
         setCounter(prevState => prevState + 1)
     }
 
     const decreamentCounter = (val) => {
         if (val) {
-            setText(val)
+            console.log(val);
         }
         setCounter(prevState => prevState - 1)
     }
@@ -35,6 +34,7 @@ const DemoCounterComponentParent = (props) => {
     //grandChild methods to increament and decreament counter using useRef 
     const increamentGrandChildCounter = (val) => {
         grandChildRef.current.increamentGrandChildCounter(val)
+        // grandChildRef.current.
     }
     const decreamentGrandChildCounter = (val) => {
         grandChildRef.current.decreamentGrandChildCounter(val)
@@ -45,7 +45,7 @@ const DemoCounterComponentParent = (props) => {
             {props.name}
         </h3>
         <h4 className='text-center'>
-            {props.name} Counter {text} : {counter}
+            {props.name} Counter  : {counter}
         </h4>
         <div className='d-flex justify-content-evenly '>
             <div className='border p-1 m-1'>
@@ -53,35 +53,40 @@ const DemoCounterComponentParent = (props) => {
                 <small className='d-block p-2'>
                     Own Methods
                 </small>
-                <button className='btn btn-info' onClick={() => increamentCounter('Increament Form Parent')}>Parent Increament</button>
-                <button className='btn btn-danger mx-1' onClick={() => decreamentCounter('Decreament Form Parent')}>Parent Decreament</button>
+                Parent
+                <button className='btn btn-info mx-1' onClick={() => increamentCounter('Increament Form Parent')}> +</button>
+                <button className='btn btn-danger mx-1' onClick={() => decreamentCounter('Decreament Form Parent')}>-</button>
             </div>
             <div className='border p-1 m-1'>
                 {/* Buttons to temper Child Conter  */}
                 <small className='d-block p-2'>
                     Using useRef
                 </small>
-                <button className='btn btn-info' onClick={() => increamentChildCounter('Increament Form Parent')} >Child Increament</button>
-                <button className='btn btn-danger mx-1' onClick={() => decreamentChildCounter('Decreament Form Parent')}>Child Decreament</button>
+                Child
+                <button className='btn btn-info mx-1' onClick={() => increamentChildCounter('Increament Form Parent')} >+</button>
+                <button className='btn btn-danger mx-1' onClick={() => decreamentChildCounter('Decreament Form Parent')}>-</button>
             </div>
             <div className='border p-1 m-1'>
                 <small className='d-block p-2'>
                     Using useRef
                 </small>
                 {/* Buttons to temper grandChild Conter  */}
-                <button className='btn btn-info' onClick={() => increamentGrandChildCounter('Increament Form Parent')}>GrandChild Increament</button>
-                <button className='btn btn-danger mx-1' onClick={() => decreamentGrandChildCounter('Decreament Form Parent')}>GrandChild Decreament</button>
+                GrandChild
+                <button className='btn btn-info mx-1' onClick={() => increamentGrandChildCounter('Increament Form Parent')}>+</button>
+                <button className='btn btn-danger mx-1' onClick={() => decreamentGrandChildCounter('Decreament Form Parent')}>-</button>
             </div>
         </div>
 
         {/* passing increament and decreament Counter Method As Props so it can be used to trigger method from child */}
-        <Provider value={{ increamentCounter,decreamentCounter}}>
+        <Provider value={{ increamentCounter,decreamentCounter }}>
             <DemoCounterComponentChild ref={childRef} name='Child' increamentCounterMethodAsProps={increamentCounter} decreamentCounterMethodAsProps={decreamentCounter} increamentGrandChildCounterMethodAsProps={increamentGrandChildCounter} decreamentGrandChildCounterMethodAsProps={decreamentGrandChildCounter} >
                 {/* passing increament and decreament Counter Method As Props so it can be used to trigger method from grandChild */}
                 <DemoCounterComponentGrandChild ref={grandChildRef} name='GrandChild' increamentCounterMethodAsProps={increamentCounter} decreamentCounterMethodAsProps={decreamentCounter} increamentChildCounterMethodAsProps={increamentChildCounter} decreamentChildCounterMethodAsProps={decreamentChildCounter}>
 
                 </DemoCounterComponentGrandChild>
             </DemoCounterComponentChild>
+
+           
         </Provider>
     </div>
 }

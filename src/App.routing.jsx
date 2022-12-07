@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react';
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes,Redirect,Navigate } from "react-router-dom";
+import ReactMapsPOC from './pages/ReactMapsPOC';
 import Loader from './shared/components/Loader';
 
 
-
+//--------------------Lazy Loaded Pages------------------------------------------//
 const ComponentComposition = React.lazy(() => import('./pages/ComponentComposition'))
 const Employee = React.lazy(() => import('./pages/Employee'))
 const Formik = React.lazy(() => import('./pages/Formik'))
@@ -24,6 +25,10 @@ const RouterOutlet = () => {
         <Suspense fallback={<Loader></Loader>}>
             <Routes>
                 <Route path="/" element={<Resgister />} />
+                {/* <Route
+                     path="*"
+                     element={<Navigate to="register" replace />}
+                 /> */}
                 <Route path="register" element={<Resgister />} />
                 <Route path="parent" element={<Parent />} />
                 <Route path="nestedRouted" element={<NestedRoutes />} >
@@ -36,6 +41,7 @@ const RouterOutlet = () => {
                 <Route path="employee" element={<Employee />} />
                 <Route path="employee/form" element={<EmployeeForm />} />
                 <Route path="employee/form/:id" element={<EmployeeForm />} />
+                <Route path="maps" element={<ReactMapsPOC />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
         </Suspense>

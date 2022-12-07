@@ -14,7 +14,7 @@ const Sidebar = () => {
 
             <ul className="nav nav-pills d-flex flex-column m-3 ">
                 <li className="nav-item">
-                    <Link to="register" className='nav-link'  >Register</Link>
+                    <NavLink to="register" className='nav-link'  >Register</NavLink>
                     {/* check for active class*/}
                 </li>
                 <li className="nav-item">
@@ -34,6 +34,9 @@ const Sidebar = () => {
                 </li>
                 <li className="nav-item">
                     <NavLink to="employee" className='nav-link'>Employee</NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink to="maps" className='nav-link'>React Maps</NavLink>
                 </li>
 
             </ul>

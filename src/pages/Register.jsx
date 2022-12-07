@@ -1,6 +1,7 @@
 
 import React from 'react';
 import httpServices from '../shared/services/userServices';
+import fb from '../assets/videos/footballV1.mp4'
 
 const loginImage = "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
 
@@ -140,43 +141,49 @@ class Resgister extends React.Component {
 
                                     this.state.toggleList &&
                                     <div className="row justify-content-center">
-                                        <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                            <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">{this.state.pageTitle}</p>
+                                        <div className=" d-flex align-items-center order-1 order-lg-2 position-relative">
+                                            <div className='position-absolute my-4 mx-3   bg-opacity-50 rounded-3' style={{zIndex:10}} >
+                                                <div className=" order-2 order-lg-1">
 
-                                            <form className="mx-1 mx-md-4">
+                                                    <p className="text-center h1 fw-bold mb-2 mx-1 mx-md-2 mt-2">{this.state.pageTitle}</p>
 
-                                                <div className="d-flex flex-row align-items-center mb-4">
-                                                    <div className="form-outline flex-fill mb-0">
-                                                        <label className="form-label fs-5 float-start" htmlFor="firstName">Your First Name</label>
-                                                        <input type="text" id="firstName" className="form-control" value={this.state.firstName} name='firstName' onChange={this.handleMultipleInputChange} />
-                                                    </div>
+                                                    <form className="mx-1 mx-md-4">
+
+                                                        <div className="d-flex flex-row align-items-center mb-4">
+                                                            <div className="form-outline flex-fill mb-0">
+                                                                <input type="text" id="firstName" placeholder='First Name' className="form-control" value={this.state.firstName} name='firstName' onChange={this.handleMultipleInputChange} />
+                                                            </div>
+                                                        </div>
+                                                        <div className="d-flex flex-row align-items-center mb-4">
+                                                            <div className="form-outline flex-fill mb-0">
+                                                                <input type="text" id="lastName" placeholder='Last Name' className="form-control" value={this.state.lastName} name='lastName' onChange={this.handleMultipleInputChange} />
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="d-flex flex-row align-items-center mb-4">
+                                                            <div className="form-outline flex-fill mb-0">
+                                                                <input type="email" id="email" placeholder='Email' className="form-control" value={this.state.email} name='email' onChange={this.handleMultipleInputChange} />
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="d-flex justify-content-around mx-4 mb-3 mb-lg-4">
+                                                            <button type="button" className="btn btn-success btn-lg" onClick={this.onSubmit}>{this.state.pageTitle}</button>
+                                                            <button type="button" className="btn btn-secondary btn-lg mx-2" onClick={this.handleListView}>Go to List</button>
+                                                        </div>
+
+                                                    </form>
+
                                                 </div>
-                                                <div className="d-flex flex-row align-items-center mb-4">
-                                                    <div className="form-outline flex-fill mb-0">
-                                                        <label className="form-label fs-5 float-start" htmlFor="lastName">Your Last Name</label>
-                                                        <input type="text" id="lastName" className="form-control" value={this.state.lastName} name='lastName' onChange={this.handleMultipleInputChange} />
-                                                    </div>
-                                                </div>
+                                            </div>
+                                            <video className='w-100 ' loop autoPlay >
+                                                <source src={fb} type="video/mp4" />
+                                                Your browser does not support HTML video.
+                                            </video>
 
-                                                <div className="d-flex flex-row align-items-center mb-4">
-                                                    <div className="form-outline flex-fill mb-0">
-                                                        <label className="form-label fs-5 float-start" htmlFor="email">Your Email</label>
-                                                        <input type="email" id="email" className="form-control" value={this.state.email} name='email' onChange={this.handleMultipleInputChange} />
-                                                    </div>
-                                                </div>
 
-                                                <div className="d-flex justify-content-around mx-4 mb-3 mb-lg-4">
-                                                    <button type="button" className="btn btn-success btn-lg" onClick={this.onSubmit}>{this.state.pageTitle}</button>
-                                                    <button type="button" className="btn btn-secondary btn-lg" onClick={this.handleListView}>Go to List</button>
-                                                </div>
-
-                                            </form>
-
-                                        </div>
-                                        <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                                            <img src={loginImage}
-                                                className="img-fluid" alt="Sample image" />
+                                            {/* <img src={loginImage}
+                                                className="img-fluid" alt="Sample image" /> */}
 
                                         </div>
                                     </div>

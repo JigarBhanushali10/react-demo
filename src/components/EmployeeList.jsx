@@ -27,7 +27,7 @@ function EmployeeList() {
      * @name getEmployees
      * @description method to call get getEmployees form empService and set data to employeeList 
      */
-    const getEmployees = async () => {
+    const getEmployees =  () => {
         // const response = await empServices.getEmployees()
         // const data = await response.data
         empServices.getEmployees().then(res=>setEmployeeList(res.data))

@@ -26,6 +26,7 @@ const AuthInterceptor = () => {
     },
     (error) => {
         const status  = error?.response?.status;
+        setloader(false)
         switch (status) {
             case 400:
                 console.log(error.response);
